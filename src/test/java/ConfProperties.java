@@ -7,7 +7,7 @@ public class ConfProperties {
     protected static Properties PROPERTIES;
     static {
         try {
-            fileInputStream = new FileInputStream("/home/sanchello/IdeaProjects/Gazprom/src/test/resources/conf.properties");
+            fileInputStream = new FileInputStream("/home/sanchello/IdeaProjects/GazpromTest/src/test/resources/conf.properties");
             PROPERTIES = new Properties();
             PROPERTIES.load(fileInputStream);
         } catch (IOException e) {

@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class MainTest {
+    private final static String mainPage = ConfProperties.getProperty("mainpage");
     private final static String loginPage = "https://secure.last.fm/login";
     private final static String joinPage = "https://www.last.fm/join";
     private final static String featuresPage = "https://www.last.fm/features";
@@ -21,12 +22,12 @@ public class MainTest {
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get(ConfProperties.getProperty("mainpage"));
+        driver.get(mainPage);
     }
 
     @Test
     public void clickLogIn() {
-        if (page.logInBtnClickability()) {
+        if (page.isLogInBtnClickability()) {
             page.clickLogInBtn();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             Assert.assertEquals(loginPage, driver.getCurrentUrl());
@@ -37,7 +38,7 @@ public class MainTest {
 
     @Test
     public void clickJoin() {
-        if (page.joinBtnClickability()) {
+        if (page.isJoinBtnClickability()) {
             page.clickJoinBtn();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             Assert.assertEquals(joinPage, driver.getCurrentUrl());
@@ -48,7 +49,7 @@ public class MainTest {
 
     @Test
     public void clickFeatures() {
-        if (page.featuresBtnClickability()) {
+        if (page.isFeaturesBtnClickability()) {
             page.clickFeaturesBtn();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             Assert.assertEquals(featuresPage, driver.getCurrentUrl());
