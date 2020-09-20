@@ -19,6 +19,17 @@ public class MainPage {
     @FindBy(css = ".masthead-inner-wrap .navlist .js-navlist-items .masthead-nav-control[href*=features]")
     private WebElement features;
 
+    public boolean isAvailable(WebElement element) {
+        try {
+            if (element.isDisplayed() && element.isEnabled()) {
+                return true;
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("Element is not present, hence not displayed as well");
+        }
+        return false;
+    }
+
     public boolean isLogInBtnClickability() {
         try {
             if (isAvailable(logIn)) {
@@ -92,16 +103,5 @@ public class MainPage {
         catch (ElementNotVisibleException exception) {
             System.out.println("Button Features isn't visible");
         }
-    }
-
-    public boolean isAvailable(WebElement element) {
-        try {
-            if (element.isDisplayed() && element.isEnabled()) {
-                return true;
-            }
-        } catch (NoSuchElementException e) {
-            System.out.println("Element is not present, hence not displayed as well");
-        }
-        return false;
     }
 }

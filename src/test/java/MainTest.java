@@ -1,3 +1,4 @@
+import io.qameta.allure.*;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -25,6 +26,9 @@ public class MainTest {
         driver.get(mainPage);
     }
 
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Check button LogIn")
+    @Step("Click on button LogIn")
     @Test
     public void clickLogIn() {
         if (page.isLogInBtnClickability()) {
@@ -36,6 +40,9 @@ public class MainTest {
         }
     }
 
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Check button Join")
+    @Step("Click on button Join")
     @Test
     public void clickJoin() {
         if (page.isJoinBtnClickability()) {
@@ -47,6 +54,9 @@ public class MainTest {
         }
     }
 
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Check button Features")
+    @Step("Click on button Features")
     @Test
     public void clickFeatures() {
         if (page.isFeaturesBtnClickability()) {
